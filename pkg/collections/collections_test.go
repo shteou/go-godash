@@ -28,3 +28,11 @@ func TestSum(t *testing.T) {
 
 	assert.Equal(t, 6, result)
 }
+
+func TestFilter(t *testing.T) {
+	result := Filter([]int{1, 2, 3}, func(x int) bool {
+		return x > 1
+	})
+
+	assert.Equal(t, []int{2, 3}, result)
+}
