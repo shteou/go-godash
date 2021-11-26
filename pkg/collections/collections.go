@@ -60,3 +60,13 @@ func TakeWhile[T any](xs []T, f func(T) bool) []T {
 
 	return taken
 }
+
+func Drop[T any](xs []T, n int) []T {
+	taken := make([]T, len(xs)-n)
+
+	for i := n; i<len(xs); i++ {
+		taken[i-n] = xs[i]
+	}
+
+	return taken
+}

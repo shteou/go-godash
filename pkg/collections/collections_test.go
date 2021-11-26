@@ -66,3 +66,15 @@ func TestTakeWhileNone(t *testing.T) {
 
 	assert.Equal(t, []int{}, result)
 }
+
+func TestDropIdentity(t *testing.T) {
+	result := Drop([]int{1, 2, 3}, 0)
+
+	assert.Equal(t, []int{1, 2, 3}, result)
+}
+
+func TestDrop(t *testing.T) {
+	result := Drop([]int{1, 2, 3}, 1)
+
+	assert.Equal(t, []int{2, 3}, result)
+}
