@@ -15,9 +15,16 @@ func TestMap(t *testing.T) {
 }
 
 func TestReduce(t *testing.T) {
+	// Sum reduce
 	result := Reduce([]int{1, 2, 3}, 0, func(x int, a int) int {
 		return a + x
 	})
 
 	assert.Equal(t, result, 6)
+}
+
+func TestSum(t *testing.T) {
+	result := Sum([]int{1, 2, 3})
+
+	assert.Equal(t, 6, result)
 }
