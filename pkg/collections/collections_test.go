@@ -42,3 +42,27 @@ func TestTake(t *testing.T) {
 
 	assert.Equal(t, []int{1, 2}, result)
 }
+
+func TestTakeWhile(t *testing.T) {
+	result := TakeWhile([]int{1, 2, 3}, func(x int) bool {
+		return x < 2
+	})
+
+	assert.Equal(t, []int{1}, result)
+}
+
+func TestTakeWhileAll(t *testing.T) {
+	result := TakeWhile([]int{1, 2, 3}, func(x int) bool {
+		return true
+	})
+
+	assert.Equal(t, []int{1, 2, 3}, result)
+}
+
+func TestTakeWhileNone(t *testing.T) {
+	result := TakeWhile([]int{1, 2, 3}, func(x int) bool {
+		return false
+	})
+
+	assert.Equal(t, []int{}, result)
+}

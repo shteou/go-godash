@@ -8,6 +8,7 @@ An experimental generic functional utility library inspired by Lodash
 * Sum
 * Filter
 * Take
+* TakeWhile
 
 ## gotip
 

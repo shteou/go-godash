@@ -46,3 +46,17 @@ func Take[T any](xs []T, n int) []T {
 
 	return taken
 }
+
+func TakeWhile[T any](xs []T, f func(T) bool) []T {
+	taken := []T{}
+
+	for _, x := range xs {
+		if f(x) {
+			taken = append(taken, x)
+		} else {
+			break
+		}
+	}
+
+	return taken
+}
