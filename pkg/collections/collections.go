@@ -18,10 +18,6 @@ func Reduce[T any, U any](xs []T, initial U, f func(T, U) U) U {
 	return accumulator
 }
 
-type Numeric interface {
-    ~int | ~int8 | ~int16 | ~int32 | ~int64 | ~float32 | ~float64
-}
-
 func Sum[T Numeric](xs []T) T {
 	return Reduce(xs, T(0), func(x T, a T) T {
 		return a + x
