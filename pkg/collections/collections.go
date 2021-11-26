@@ -76,8 +76,11 @@ func DropWhile[T any](xs []T, f func(T) bool) []T {
 	dropping := true
 
 	for _, x := range xs {
-		if dropping && f(x) {
+		if !f(x) {
 			dropping = false
+		}
+
+		if dropping {
 			continue
 		} else {
 			taken = append(taken, x)

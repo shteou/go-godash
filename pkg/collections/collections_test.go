@@ -94,3 +94,12 @@ func TestDropWhile(t *testing.T) {
 
 	assert.Equal(t, []int{2, 3}, result)
 }
+
+func TestDropWhile_DontStartDroppingAgain(t *testing.T) {
+	result := DropWhile([]int{1, 2, 3}, func(x int) bool {
+		return x == 1 || x == 3
+	})
+
+	assert.Equal(t, []int{2, 3}, result)
+
+}
