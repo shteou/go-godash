@@ -10,6 +10,7 @@ An experimental generic functional utility library inspired by Lodash
 * Take
 * TakeWhile
 * Drop
+* DropWhile
 
 ## gotip
 

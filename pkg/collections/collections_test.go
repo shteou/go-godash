@@ -78,3 +78,19 @@ func TestDrop(t *testing.T) {
 
 	assert.Equal(t, []int{2, 3}, result)
 }
+
+func TestDropWhileIdentity(t *testing.T) {
+	result := DropWhile([]int{1, 2, 3}, func(x int) bool {
+		return false
+	})
+
+	assert.Equal(t, []int{1, 2, 3}, result)
+}
+
+func TestDropWhile(t *testing.T) {
+	result := DropWhile([]int{1, 2, 3}, func(x int) bool {
+		return x < 2
+	})
+
+	assert.Equal(t, []int{2, 3}, result)
+}

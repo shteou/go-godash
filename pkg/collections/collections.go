@@ -70,3 +70,19 @@ func Drop[T any](xs []T, n int) []T {
 
 	return taken
 }
+
+func DropWhile[T any](xs []T, f func(T) bool) []T {
+	taken := []T{}
+	dropping := true
+
+	for _, x := range xs {
+		if dropping && f(x) {
+			dropping = false
+			continue
+		} else {
+			taken = append(taken, x)
+		}
+	}
+
+	return taken
+}
