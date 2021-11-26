@@ -13,3 +13,11 @@ func TestMap(t *testing.T) {
 
 	assert.Equal(t, result, []int{11, 12, 13})
 }
+
+func TestReduce(t *testing.T) {
+	result := Reduce([]int{1, 2, 3}, 0, func(x int, a int) int {
+		return a + x
+	})
+
+	assert.Equal(t, result, 6)
+}
