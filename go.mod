@@ -1,4 +1,4 @@
-module github.com/shteou/godash
+module github.com/shteou/go-godash
 
 go 1.18
 
