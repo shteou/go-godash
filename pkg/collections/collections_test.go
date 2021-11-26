@@ -11,7 +11,7 @@ func TestMap(t *testing.T) {
 		return x + 10
 	})
 
-	assert.Equal(t, result, []int{11, 12, 13})
+	assert.Equal(t, []int{11, 12, 13}, result)
 }
 
 func TestReduce(t *testing.T) {
@@ -20,7 +20,7 @@ func TestReduce(t *testing.T) {
 		return a + x
 	})
 
-	assert.Equal(t, result, 6)
+	assert.Equal(t, 6, result)
 }
 
 func TestSum(t *testing.T) {
