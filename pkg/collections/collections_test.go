@@ -36,3 +36,9 @@ func TestFilter(t *testing.T) {
 
 	assert.Equal(t, []int{2, 3}, result)
 }
+
+func TestTake(t *testing.T) {
+	result := Take([]int{1, 2, 3}, 2)
+
+	assert.Equal(t, []int{1, 2}, result)
+}

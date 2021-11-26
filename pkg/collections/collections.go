@@ -36,3 +36,13 @@ func Filter[T any](xs []T, f func(T) bool) []T {
 	}
 	return taken
 }
+
+func Take[T any](xs []T, n int) []T {
+	taken := make([]T, n)
+
+	for i := 0; i<n; i++ {
+		taken[i] = xs[i]
+	}
+
+	return taken
+}
