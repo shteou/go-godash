@@ -89,3 +89,18 @@ func DropWhile[T any](xs []T, f func(T) bool) []T {
 
 	return taken
 }
+
+func Partition[T any](xs []T, f func(T) bool) ([]T, []T) {
+	passed := []T{}
+	failed := []T{}
+
+	for _, x := range xs {
+		if f(x) {
+			passed = append(passed, x)
+		} else {
+			failed = append(failed, x)
+		}
+	}
+
+	return passed, failed
+}

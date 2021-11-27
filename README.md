@@ -11,6 +11,7 @@ An experimental generic functional utility library inspired by Lodash
 * TakeWhile
 * Drop
 * DropWhile
+* Partition
 
 ## gotip
 

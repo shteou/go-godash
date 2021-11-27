@@ -101,5 +101,13 @@ func TestDropWhile_DontStartDroppingAgain(t *testing.T) {
 	})
 
 	assert.Equal(t, []int{2, 3}, result)
+}
 
+func TestPartition(t *testing.T) {
+	passed, failed := Partition([]int{1, 2, 3}, func(x int) bool {
+		return x < 2
+	})
+
+	assert.Equal(t, []int{1}, passed)
+	assert.Equal(t, []int{2, 3}, failed)
 }
