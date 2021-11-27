@@ -111,3 +111,15 @@ func TestPartition(t *testing.T) {
 	assert.Equal(t, []int{1}, passed)
 	assert.Equal(t, []int{2, 3}, failed)
 }
+
+func TestHead(t *testing.T) {
+	result := Head([]int{1, 2, 3})
+
+	assert.Equal(t, 1, result)
+}
+
+func TestLast(t *testing.T) {
+	result := Last([]int{1, 2, 3})
+
+	assert.Equal(t, 3, result)
+}

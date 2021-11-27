@@ -104,3 +104,15 @@ func Partition[T any](xs []T, f func(T) bool) ([]T, []T) {
 
 	return passed, failed
 }
+
+func Head[T any](xs []T) T {
+	return xs[0]
+}
+
+func First[T any](xs []T) T {
+	return Head(xs)
+}
+
+func Last[T any](xs []T) T {
+	return xs[len(xs)-1]
+}
