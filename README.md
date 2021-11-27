@@ -14,6 +14,7 @@ An experimental generic functional utility library inspired by Lodash
 * Partition
 * First (Head)
 * Last
+* Reverse
 
 ## gotip
 
