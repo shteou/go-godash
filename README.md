@@ -15,6 +15,8 @@ An experimental generic functional utility library inspired by Lodash
 * First (Head)
 * Last
 * Reverse
+* Find
+* FindPredicate
 
 ## gotip
 

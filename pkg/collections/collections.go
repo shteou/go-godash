@@ -126,3 +126,26 @@ func Reverse[T any](xs []T) []T {
 
 	return reversed
 }
+
+func Find[T comparable](xs []T, t T) (*T, int) {
+	for i, x := range xs {
+		if x == t {
+			// Explicitly copy
+			copy := x
+			return &copy, i
+		}
+	}
+	return nil, -1
+}
+
+func FindPredicate[T any](xs []T, f func(T) bool) (*T, int) {
+	for i, x := range xs {
+		if f(x) {
+			// Explicitly copy
+			copy := x
+			return &copy, i
+		}
+	}
+
+	return nil, -1
+}

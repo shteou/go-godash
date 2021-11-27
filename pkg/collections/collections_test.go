@@ -129,3 +129,35 @@ func TestReverse(t *testing.T) {
 
 	assert.Equal(t, []int{3, 2, 1}, result)
 }
+
+func TestFind(t *testing.T) {
+	result, index := Find([]int{1, 2, 3}, 2)
+
+	assert.Equal(t, 2, *result)
+	assert.Equal(t, 1, index)
+}
+
+func TestFindAbsent(t *testing.T) {
+	result, index := Find([]int{1, 2, 3}, 4)
+
+	assert.Nil(t, result)
+	assert.Equal(t, -1, index)
+}
+
+func TestFindPredicate(t *testing.T) {
+	result, index := FindPredicate([]int{1, 2, 3}, func(x int) bool {
+		return x == 3
+	})
+
+	assert.Equal(t, 3, *result)
+	assert.Equal(t, 2, index)
+}
+
+func TestFindPredicateAbsent(t *testing.T) {
+	result, index := FindPredicate([]int{1, 2, 3}, func(x int) bool {
+		return x == 4
+	})
+
+	assert.Nil(t, result)
+	assert.Equal(t, -1, index)
+}
