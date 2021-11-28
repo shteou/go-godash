@@ -1,5 +1,7 @@
 package arrays
 
+import "github.com/shteou/go-godash/pkg/types"
+
 func Map[T any, U any](xs []T, f func(T) U) []U {
 	mapped := make([]U, len(xs))
 
@@ -19,7 +21,7 @@ func Reduce[T any, U any](xs []T, initial U, f func(T, U) U) U {
 }
 
 
-func Filter[T any](xs []T, f func(T) bool) []T {
+func Filter[T any](xs []T, f types.Predicate[T]) []T {
 	taken := []T{}
 	for _, x := range xs {
 		if f(x) {
@@ -39,7 +41,7 @@ func Take[T any](xs []T, n int) []T {
 	return taken
 }
 
-func TakeWhile[T any](xs []T, f func(T) bool) []T {
+func TakeWhile[T any](xs []T, f types.Predicate[T]) []T {
 	taken := []T{}
 
 	for _, x := range xs {
@@ -63,7 +65,7 @@ func Drop[T any](xs []T, n int) []T {
 	return taken
 }
 
-func DropWhile[T any](xs []T, f func(T) bool) []T {
+func DropWhile[T any](xs []T, f types.Predicate[T]) []T {
 	taken := []T{}
 	dropping := true
 
@@ -82,7 +84,7 @@ func DropWhile[T any](xs []T, f func(T) bool) []T {
 	return taken
 }
 
-func Partition[T any](xs []T, f func(T) bool) ([]T, []T) {
+func Partition[T any](xs []T, f types.Predicate[T]) ([]T, []T) {
 	passed := []T{}
 	failed := []T{}
 
@@ -130,7 +132,7 @@ func Find[T comparable](xs []T, t T) (*T, int) {
 	return nil, -1
 }
 
-func FindPredicate[T any](xs []T, f func(T) bool) (*T, int) {
+func FindPredicate[T any](xs []T, f types.Predicate[T]) (*T, int) {
 	for i, x := range xs {
 		if f(x) {
 			// Explicitly copy
