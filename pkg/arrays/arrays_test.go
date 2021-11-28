@@ -172,6 +172,16 @@ func TestDifference(t *testing.T) {
 	assert.Contains(t, elems, 4)
 }
 
+func TestUnion(t *testing.T) {
+	elems := Union([]int{1, 2, 3}, []int{2, 3, 4})
+
+	assert.Len(t, elems, 4)
+	assert.Contains(t, elems, 1)
+	assert.Contains(t, elems, 2)
+	assert.Contains(t, elems, 3)
+	assert.Contains(t, elems, 4)
+}
+
 func TestChunk(t *testing.T) {
 	chunks := Chunk([]int{1, 2, 3}, 2)
 

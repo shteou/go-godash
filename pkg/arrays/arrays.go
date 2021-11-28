@@ -144,6 +144,10 @@ func FindPredicate[T any](xs []T, f types.Predicate[T]) (*T, int) {
 	return nil, -1
 }
 
+// TODO: Rethink/Optimise all set operations
+// Could support an arbitrary number of args,
+// or guarantee order of elements, would need to
+// stop converting to maps to achieve this
 func setFromArray[T comparable](xs []T) map[T]bool {
 	xsSet := map[T]bool{}
 	for _, x := range xs {
@@ -189,6 +193,22 @@ func Difference[T comparable](xs []T, ys []T) []T {
 		}
 	}
 
+	return result
+}
+
+func Union[T comparable](xs []T, ys []T) []T {
+	xsSet := setFromArray(xs)
+	ysSet := setFromArray(ys)
+
+	result := xs
+
+	for k, _ := range ysSet {
+		if _, ok := xsSet[k]; ok {
+			continue
+		} else {
+			result = append(result, k)
+		}
+	}
 
 	return result
 }

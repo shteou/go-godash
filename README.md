@@ -57,6 +57,7 @@ Arrays:
 * FindPredicate
 * Intersection
 * Difference
+* Union
 * Chunk
 * Flatten
 * Without
