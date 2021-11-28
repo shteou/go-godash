@@ -217,3 +217,15 @@ func Chunk[T any](xs []T, chunkSize int) [][]T {
 
 	return result
 }
+
+func Flatten[T any](xs [][]T) []T {
+	result := []T{}
+
+	for i := 0; i < len(xs); i++ {
+		for j := 0; j < len(xs[i]); j++ {
+			result = append(result, xs[i][j])
+		}
+	}
+
+	return result
+}

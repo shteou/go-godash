@@ -51,6 +51,7 @@ Arrays:
 * Intersection
 * Difference
 * Chunk
+* Flatten
 
 Numeric functions:
 

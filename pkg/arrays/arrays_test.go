@@ -187,3 +187,9 @@ func TestChunkExact(t *testing.T) {
 	assert.Equal(t, []int{1, 2}, chunks[0])
 	assert.Equal(t, []int{3, 4}, chunks[1])
 }
+
+func TestFlatten(t *testing.T) {
+	flattened := Flatten([][]int{[]int{1, 2}, []int{3, 4}})
+
+	assert.Equal(t, flattened, []int{1, 2, 3, 4})
+}
