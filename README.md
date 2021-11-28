@@ -32,7 +32,7 @@ we need to divide an arbitrary complex type (complex64 or 128) by the length of
 the array. There is no way to infer whether it should be divided by a float32 or float64
 type.
 
-See (this section)[https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md#no-way-to-express-convertibility] and (this section)[https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md#no-way-to-express-convertibility] of the generics proposal for more information.
+See [this section](https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md#no-way-to-express-convertibility) and [this section](https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md#no-way-to-express-convertibility) of the generics proposal for more information.
 
 ## gotip
 
