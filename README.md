@@ -1,5 +1,35 @@
 # go-godash
-An experimental generic functional utility library inspired by Lodash
+
+An experimental generic functional utility library inspired by Lodash.
+
+This package aims to implement many of the utility methods from Lodash
+over Go arrays and Maps.
+
+_Caveat_: I have very little experience with Go generics, so the API will
+evolve heavily. It may never hit version 1, depending on how collections
+evolve in Go once generics lands.
+
+## Example
+
+Here's a contrived example of implementing and `incrementAndSum` function.
+The examples themselves are defined for a concrete type, but the underlying
+`Sum` and `Map` functions are generic across `Numeric` and `all` types respectively.
+
+```go
+// A non-generic increment function for integers
+func increment(x int) int {
+    return x + 1
+}
+
+// A non-generic increment and sum function for arrays of integers
+func incrementAndSum(arr []int) int {
+    // Utilises generic Map and Sum functions
+	result := Sum(Map(arr, increment))
+}
+
+// Returns 9
+incrementAndSum([]int{1, 2, 3})
+```
 
 ## Implemented functions
 
