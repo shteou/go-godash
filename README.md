@@ -1,9 +1,16 @@
 # go-godash
 
-An experimental generic functional utility library inspired by Lodash.
+An experimental generic functional library for transforming collections
+of data, inspired by packages such as Lodash.
 
-This package aims to implement many of the utility methods from Lodash
-over Go arrays and Maps.
+This package aims to implement many of the methods from Lodash over
+Go arrays and Maps. All functions in this module are intended to work with
+native Go types (i.e. do not define their own containers/iterators), and
+should be type safe at compile-time.
+
+The functions defined here are only loosely inspired by Lodash. Sometimes
+they deviate because of impedance between the two languages, or sometimes
+because I didn't bother to read the documentation properly.
 
 _Caveat_: I have very little experience with Go generics, so the API will
 evolve heavily. It may never hit version 1, depending on how collections
@@ -18,12 +25,12 @@ The examples themselves are defined for a concrete type, but the underlying
 ```go
 // A non-generic increment function for integers
 func increment(x int) int {
-    return x + 1
+	return x + 1
 }
 
 // A non-generic increment and sum function for arrays of integers
 func incrementAndSum(arr []int) int {
-    // Utilises generic Map and Sum functions
+	// Utilises generic Map and Sum functions
 	result := Sum(Map(arr, increment))
 }
 
@@ -58,6 +65,14 @@ Numeric functions:
 * Sum
 * Mean
 
+### Not implemented
+
+Some functions are unimplemented because they do not translate in a type-safe manner.
+
+* FlattenDeep/FlattenDepth - It's not immediately obvious to me how to achieve this
+  in a type safe way, so these functions are omitted
+* FromPairs - Assumes an input array of untyped data which cannot be achieved at
+  compile time
 
 ## Limitations
 
