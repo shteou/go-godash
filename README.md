@@ -59,6 +59,7 @@ Arrays:
 * Difference
 * Chunk
 * Flatten
+* Without
 
 Numeric functions:
 

@@ -193,3 +193,11 @@ func TestFlatten(t *testing.T) {
 
 	assert.Equal(t, flattened, []int{1, 2, 3, 4})
 }
+
+func TestWithout(t *testing.T) {
+	result := Without([]int{1, 2, 3}, func(x int) bool {
+		return x > 2
+	})
+
+	assert.Equal(t, []int{1, 2}, result)
+}

@@ -231,3 +231,13 @@ func Flatten[T any](xs [][]T) []T {
 
 	return result
 }
+
+func Without[T any](xs []T, f types.Predicate[T]) []T {
+	taken := []T{}
+	for _, x := range xs {
+		if !f(x) {
+			taken = append(taken, x)
+		}
+	}
+	return taken
+}
