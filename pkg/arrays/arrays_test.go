@@ -1,4 +1,4 @@
-package collections
+package arrays
 
 import (
 	"testing"

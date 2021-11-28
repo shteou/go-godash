@@ -33,6 +33,8 @@ incrementAndSum([]int{1, 2, 3})
 
 ## Implemented functions
 
+Arrays:
+
 * Map
 * Reduce
 * Filter
@@ -49,7 +51,7 @@ incrementAndSum([]int{1, 2, 3})
 * Intersection
 * Difference
 
-Numeric functions
+Numeric functions:
 
 * Sum
 * Mean

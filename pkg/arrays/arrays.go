@@ -1,4 +1,4 @@
-package collections
+package arrays
 
 func Map[T any, U any](xs []T, f func(T) U) []U {
 	mapped := make([]U, len(xs))
