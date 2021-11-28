@@ -52,7 +52,7 @@ Arrays:
 * Partition
 * First (Head)
 * Last
-* Reverse
+* Reversed
 * Find
 * FindPredicate
 * Intersection

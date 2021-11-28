@@ -118,8 +118,8 @@ func TestLast(t *testing.T) {
 	assert.Equal(t, 3, result)
 }
 
-func TestReverse(t *testing.T) {
-	result := Reverse([]int{1, 2, 3})
+func TestReversed(t *testing.T) {
+	result := Reversed([]int{1, 2, 3})
 
 	assert.Equal(t, []int{3, 2, 1}, result)
 }

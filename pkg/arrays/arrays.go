@@ -111,7 +111,7 @@ func Last[T any](xs []T) T {
 	return xs[len(xs)-1]
 }
 
-func Reverse[T any](xs []T) []T {
+func Reversed[T any](xs []T) []T {
 	reversed := make([]T, len(xs))
 
 	for i, _ := range xs {
