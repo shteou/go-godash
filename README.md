@@ -50,6 +50,7 @@ Arrays:
 * FindPredicate
 * Intersection
 * Difference
+* Chunk
 
 Numeric functions:
 

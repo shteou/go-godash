@@ -190,3 +190,30 @@ func Difference[T comparable](xs []T, ys []T) []T {
 
 	return result
 }
+
+func Chunk[T any](xs []T, chunkSize int) [][]T {
+	result := [][]T{}
+
+	// Full chunks
+	for i := 0; i < len(xs) / chunkSize; i++ {
+		newChunk := []T{}
+		result = append(result, []T{})
+		for j := 0; j < chunkSize; j++ {
+			newChunk = append(newChunk, xs[i*chunkSize+j])
+		}
+		result[i] = append(result[i], newChunk...)
+	}
+
+	// Remaining chunk
+	remaining := len(xs) % chunkSize
+	if len(xs) % chunkSize > 0 {
+		newChunk := []T{}
+
+		for i := 0; i < remaining; i++ {
+			newChunk = append(newChunk, xs[len(xs)-remaining+i])
+		}
+		result = append(result, newChunk)
+	}
+
+	return result
+}

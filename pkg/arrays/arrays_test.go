@@ -171,3 +171,19 @@ func TestDifference(t *testing.T) {
 	assert.Contains(t, elems, 1)
 	assert.Contains(t, elems, 4)
 }
+
+func TestChunk(t *testing.T) {
+	chunks := Chunk([]int{1, 2, 3}, 2)
+
+	assert.Len(t, chunks, 2)
+	assert.Equal(t, []int{1, 2}, chunks[0])
+	assert.Equal(t, []int{3}, chunks[1])
+}
+
+func TestChunkExact(t *testing.T) {
+	chunks := Chunk([]int{1, 2, 3, 4}, 2)
+
+	assert.Len(t, chunks, 2)
+	assert.Equal(t, []int{1, 2}, chunks[0])
+	assert.Equal(t, []int{3, 4}, chunks[1])
+}
