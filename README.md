@@ -46,6 +46,8 @@ incrementAndSum([]int{1, 2, 3})
 * Reverse
 * Find
 * FindPredicate
+* Intersection
+* Difference
 
 Numeric functions
 

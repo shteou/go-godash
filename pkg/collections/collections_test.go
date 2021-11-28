@@ -155,3 +155,19 @@ func TestFindPredicateAbsent(t *testing.T) {
 	assert.Nil(t, result)
 	assert.Equal(t, -1, index)
 }
+
+func TestIntersection(t *testing.T) {
+	elems := Intersection([]int{1, 2, 3}, []int{2, 3, 4})
+
+	assert.Len(t, elems, 2)
+	assert.Contains(t, elems, 2)
+	assert.Contains(t, elems, 3)
+}
+
+func TestDifference(t *testing.T) {
+	elems := Difference([]int{1, 2, 3}, []int{2, 3, 4})
+
+	assert.Len(t, elems, 2)
+	assert.Contains(t, elems, 1)
+	assert.Contains(t, elems, 4)
+}

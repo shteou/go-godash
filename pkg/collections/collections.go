@@ -141,3 +141,52 @@ func FindPredicate[T any](xs []T, f func(T) bool) (*T, int) {
 
 	return nil, -1
 }
+
+func setFromArray[T comparable](xs []T) map[T]bool {
+	xsSet := map[T]bool{}
+	for _, x := range xs {
+	    xsSet[x] = true
+	}
+	return xsSet
+}
+
+func Intersection[T comparable](xs []T, ys []T) []T {
+	xsSet := setFromArray(xs)
+	ysSet := setFromArray(ys)
+
+	result := []T{}
+
+	for k, _ := range xsSet {
+		if _, ok := ysSet[k]; ok {
+			result = append(result, k)
+		}
+	}
+
+	return result
+}
+
+func Difference[T comparable](xs []T, ys []T) []T {
+	xsSet := setFromArray(xs)
+	ysSet := setFromArray(ys)
+
+	result := []T{}
+
+	for k, _ := range xsSet {
+		if _, ok := ysSet[k]; ok {
+			continue
+		} else {
+			result = append(result, k)
+		}
+	}
+
+	for k, _ := range ysSet {
+		if _, ok := xsSet[k]; ok {
+			continue
+		} else {
+			result = append(result, k)
+		}
+	}
+
+
+	return result
+}
