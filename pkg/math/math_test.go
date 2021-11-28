@@ -12,12 +12,8 @@ func TestSum(t *testing.T) {
 	assert.Equal(t, 6, result)
 }
 
-func TestSumComplex(t *testing.T) {
-	var result complex64
-	result = Sum([]complex64{
-		complex(float32(34.0), float32(15.5)),
-		complex(float32(12), float32(-3))})
+func TestMean(t *testing.T) {
+	result := Mean([]int{2, 2, 5})
 
-	assert.Equal(t, float32(46), real(result))
-	assert.Equal(t, float32(12.5), imag(result))
+	assert.Equal(t, 3, result)
 }
