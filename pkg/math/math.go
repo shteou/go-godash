@@ -18,3 +18,26 @@ func Mean[T constraints.Numeric](xs []T) T {
 func Average[T constraints.Numeric](xs []T) T {
 	return Mean(xs)
 }
+
+func Mode[T comparable](xs []T) T {
+	counts := map[T]int{}
+
+	for _, x := range xs {
+		if val, ok := counts[x]; ok {
+			counts[x] = val + 1
+		} else {
+			counts[x] = 1
+		}
+	}
+
+	var mostCommonCount int
+	var mostCommonKey T
+	for k, v := range counts {
+		if v > mostCommonCount {
+			mostCommonCount = v
+			mostCommonKey = k
+		}
+	}
+
+	return mostCommonKey
+}

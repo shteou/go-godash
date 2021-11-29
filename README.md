@@ -73,6 +73,7 @@ Numeric functions:
 
 * Sum
 * Mean
+* Mode (defined over all comparables, not just Numerics)
 
 ### Not implemented
 

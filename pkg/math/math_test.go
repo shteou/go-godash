@@ -17,3 +17,15 @@ func TestAverage(t *testing.T) {
 
 	assert.Equal(t, 3, result)
 }
+
+func TestMode(t *testing.T) {
+	result := Mode([]int{2, 3, 3, 4})
+
+	assert.Equal(t, 3, result)
+}
+
+func TestModeString(t *testing.T) {
+	result := Mode([]string{"a", "b", "c", "b", "c"})
+
+	assert.Contains(t, []string{"b", "c"}, result)
+}
