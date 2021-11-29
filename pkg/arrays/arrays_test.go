@@ -259,3 +259,15 @@ func TestSomeEmpty(t *testing.T) {
 
 	assert.False(t, result)
 }
+
+func TestFlatMap(t *testing.T) {
+	result := FlatMap([]int{1, 2, 3}, func(x int) []int {
+		all := []int{}
+		for i := 0; i < x; i++ {
+			all = append(all, x)
+		}
+		return all
+	})
+
+	assert.Equal(t, []int{1, 2, 2, 3, 3, 3}, result)
+}

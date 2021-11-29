@@ -67,6 +67,7 @@ Arrays:
 * Without
 * Any/Some
 * All/Every
+* FlatMap
 
 Numeric functions:
 

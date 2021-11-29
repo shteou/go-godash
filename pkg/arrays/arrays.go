@@ -1,6 +1,10 @@
 package arrays
 
-import "github.com/shteou/go-godash/pkg/types"
+import (
+	"fmt"
+
+	"github.com/shteou/go-godash/pkg/types"
+)
 
 func Map[T any, U any](xs []T, f func(T) U) []U {
 	mapped := make([]U, len(xs))
@@ -286,4 +290,12 @@ func Any[T any](xs []T, f types.Predicate[T]) bool {
 
 func Some[T any](xs []T, f types.Predicate[T]) bool {
 	return Any(xs, f)
+}
+
+func FlatMap[T any, U any](xs []T, f func(T) []U) []U {
+	// TODO: Optimise. It should be possible to flatten each value as
+	// we iterate, rather than collecting everything first. We can save
+	// some allocations and improve locality
+	mapped := Map(xs, f)
+	return Flatten(mapped)
 }
