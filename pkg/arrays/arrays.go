@@ -1,8 +1,6 @@
 package arrays
 
 import (
-	"fmt"
-
 	"github.com/shteou/go-godash/pkg/types"
 )
 
