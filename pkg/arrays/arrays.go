@@ -4,7 +4,7 @@ import (
 	"github.com/shteou/go-godash/pkg/types"
 )
 
-func Map[T any, U any](xs []T, f types.Mapper) []U {
+func Map[T any, U any](xs []T, f types.Mapper[T, I]) []U {
 	mapped := make([]U, len(xs))
 
 	for i, x := range xs {
@@ -14,7 +14,7 @@ func Map[T any, U any](xs []T, f types.Mapper) []U {
 	return mapped
 }
 
-func Reduce[T any, U any](xs []T, initial U, f types.Reducer) U {
+func Reduce[T any, U any](xs []T, initial U, f types.Reducer[T, U]) U {
 	accumulator := initial
 	for _, x := range xs {
 		accumulator = f(x, accumulator)
