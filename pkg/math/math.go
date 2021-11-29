@@ -22,15 +22,15 @@ func Average[T constraints.Numeric](xs []T) T {
 func Mode[T comparable](xs []T) T {
 	counts := map[T]int{}
 
-	for i, x := range xs {
+	for _, x := range xs {
 		if val, ok := counts[x]; ok {
-			counts[x] = counts[x] + 1
+			counts[x] = val + 1
 		} else {
 			counts[x] = 1
 		}
 	}
 
-	var mostCommonCount := 0
+	var mostCommonCount int
 	var mostCommonKey T
 	for k, v := range counts {
 		if v > mostCommonCount {
