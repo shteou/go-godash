@@ -106,8 +106,8 @@ func TestPartition(t *testing.T) {
 	assert.Equal(t, []int{2, 3}, failed)
 }
 
-func TestHead(t *testing.T) {
-	result := Head([]int{1, 2, 3})
+func TestFirst(t *testing.T) {
+	result := First([]int{1, 2, 3})
 
 	assert.Equal(t, 1, result)
 }
@@ -213,7 +213,7 @@ func TestWithout(t *testing.T) {
 }
 
 func TestAllTrue(t *testing.T) {
-	result := Every([]int{1, 2, 3}, func(x int) bool {
+	result := All([]int{1, 2, 3}, func(x int) bool {
 		return true
 	})
 
@@ -221,7 +221,7 @@ func TestAllTrue(t *testing.T) {
 }
 
 func TestAllFalse(t *testing.T) {
-	result := Every([]int{1, 2, 3}, func(x int) bool {
+	result := All([]int{1, 2, 3}, func(x int) bool {
 		return x > 2
 	})
 
@@ -229,7 +229,7 @@ func TestAllFalse(t *testing.T) {
 }
 
 func TestAllEmpty(t *testing.T) {
-	result := Every([]int{}, func(x int) bool {
+	result := All([]int{}, func(x int) bool {
 		return false
 	})
 
