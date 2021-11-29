@@ -61,6 +61,8 @@ Arrays:
 * Chunk
 * Flatten
 * Without
+* Any/Some
+* All/Every
 
 Numeric functions:
 

@@ -261,3 +261,29 @@ func Without[T any](xs []T, f types.Predicate[T]) []T {
 	}
 	return taken
 }
+
+func Every[T any](xs []T, f types.Predicate[T]) bool {
+	for _, x := range xs {
+		if !f(x) {
+			return false
+		}
+	}
+	return true
+}
+
+func All[T any](xs []T, f types.Predicate[T]) bool {
+	return Every(xs, f)
+}
+
+func Any[T any](xs []T, f types.Predicate[T]) bool {
+	for _, x := range xs {
+		if f(x) {
+			return true
+		}
+	}
+	return false
+}
+
+func Some[T any](xs []T, f types.Predicate[T]) bool {
+	return Any(xs, f)
+}

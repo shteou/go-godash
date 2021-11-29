@@ -211,3 +211,51 @@ func TestWithout(t *testing.T) {
 
 	assert.Equal(t, []int{1, 2}, result)
 }
+
+func TestAllTrue(t *testing.T) {
+	result := Every([]int{1, 2, 3}, func(x int) bool {
+		return true
+	})
+
+	assert.True(t, result)
+}
+
+func TestAllFalse(t *testing.T) {
+	result := Every([]int{1, 2, 3}, func(x int) bool {
+		return x > 2
+	})
+
+	assert.False(t, result)
+}
+
+func TestAllEmpty(t *testing.T) {
+	result := Every([]int{}, func(x int) bool {
+		return false
+	})
+
+	assert.True(t, result)
+}
+
+func TestSomeTrue(t *testing.T) {
+	result := Some([]int{1, 2, 3}, func(x int) bool {
+		return x == 2
+	})
+
+	assert.True(t, result)
+}
+
+func TestSomeFalse(t *testing.T) {
+	result := Some([]int{1, 2, 3}, func(x int) bool {
+		return x > 3
+	})
+
+	assert.False(t, result)
+}
+
+func TestSomeEmpty(t *testing.T) {
+	result := Some([]int{}, func(x int) bool {
+		return false
+	})
+
+	assert.False(t, result)
+}
