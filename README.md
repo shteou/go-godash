@@ -12,6 +12,10 @@ The functions defined here are only loosely inspired by Lodash. Sometimes
 they deviate because of impedance between the two languages, or sometimes
 because I didn't bother to read the documentation properly.
 
+Some categories of Lodash functions are completely omitted. e.g. there
+are plenty of libraries out there providing String manipulation tools,
+there's no need to create a new set in this library.
+
 _Caveat_: I have very little experience with Go generics, so the API will
 evolve heavily. It may never hit version 1, depending on how collections
 evolve in Go once generics lands.
