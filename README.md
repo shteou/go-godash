@@ -1,5 +1,8 @@
 # go-godash
 
+![Go build status](https://img.shields.io/github/workflow/status/shteou/go-godash/Go)
+![Go mod version](https://img.shields.io/github/go-mod/go-version/shteou/go-godash)
+
 An experimental generic functional library for transforming collections
 of data, inspired by packages such as Lodash.
 
