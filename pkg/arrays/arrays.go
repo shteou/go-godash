@@ -6,7 +6,7 @@ import (
 
 // Map creates a new array of of values by passing each
 // element of xs to the Mapper function f.
-func Map[T any, U any](xs []T, f types.Mapper) []U {
+func Map[T any, U any](xs []T, f types.Mapper[T, U]) []U {
 	mapped := make([]U, len(xs))
 
 	for i, x := range xs {
@@ -20,7 +20,7 @@ func Map[T any, U any](xs []T, f types.Mapper) []U {
 // the result of each element as passed through the Reducer
 // function f. The first element is passed to the Reducer with
 // the supplied initial value.
-func Reduce[T any, U any](xs []T, initial U, f types.Reducer) U {
+func Reduce[T any, U any](xs []T, initial U, f types.Reducer[T, U]) U {
 	accumulator := initial
 	for _, x := range xs {
 		accumulator = f(x, accumulator)
