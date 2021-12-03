@@ -156,6 +156,12 @@ func TestFindPredicateAbsent(t *testing.T) {
 	assert.Equal(t, -1, index)
 }
 
+func TestIntersectionEmpty(t *testing.T) {
+	elems := Intersection([]int{}, []int{})
+
+	assert.Len(t, elems, 0)
+}
+
 func TestIntersection(t *testing.T) {
 	elems := Intersection([]int{1, 2, 3}, []int{2, 3, 4})
 
