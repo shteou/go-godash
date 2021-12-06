@@ -21,9 +21,9 @@ jobs:
         echo "GOROOT=$HOME/gotip" >> $GITHUB_ENV
         echo "$HOME/gotip/bin:$PATH" >> $GITHUB_PATH
         which go
-        go --version
+        go version
         which gotip
-        gotip --version
+        gotip version
 
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
