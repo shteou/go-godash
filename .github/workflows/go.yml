@@ -15,6 +15,11 @@ jobs:
 
     - name: Install gotip
       run: |
+        git clone --depth=1 https://go.googlesource.com/go $HOME/gotip
+        cd $HOME/gotip/src
+        ./make.bash
+        echo "GOROOT=$HOME/gotip" >> $GITHUB_ENV
+        echo "$HOME/gotip/bin:$PATH" >> $GITHUB_PATH
         go install golang.org/dl/gotip
         gotip download
         which go
