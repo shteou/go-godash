@@ -20,10 +20,10 @@ jobs:
         ./make.bash
         echo "GOROOT=$HOME/gotip" >> $GITHUB_ENV
         echo "$HOME/gotip/bin:$PATH" >> $GITHUB_PATH
-        go install golang.org/dl/gotip@latest
-        gotip download
         which go
+        go --version
         which gotip
+        gotip --version
 
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
