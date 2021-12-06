@@ -20,7 +20,7 @@ jobs:
         ./make.bash
         echo "GOROOT=$HOME/gotip" >> $GITHUB_ENV
         echo "$HOME/gotip/bin:$PATH" >> $GITHUB_PATH
-        go install golang.org/dl/gotip
+        go install golang.org/dl/gotip@latest
         gotip download
         which go
         which gotip
