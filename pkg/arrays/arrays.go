@@ -16,6 +16,26 @@ func Map[T any, U any](xs []T, f types.Mapper[T, U]) []U {
 	return mapped
 }
 
+// Map creates a new array of values by passing each element
+// of xs to the MapperWithError function f. This function short
+// circuits if f returns an error, returning the elements so far
+// NOTE: The output array may be of the same size as the input
+// array, xs, but may not necessarily be fully populated
+func MapWithError[T any, U any](xs []T, f types.MapperWithError[T, U]) ([]U, error) {
+	mapped := make([]U, len(xs))
+
+	for i, x := range xs {
+		res, err := f(x)
+		if err != nil {
+			return mapped, err
+		} else {
+			mapped[i] = res
+		}
+	}
+
+	return mapped, nil
+}
+
 // Reduce produces a value from xs by accumulating
 // the result of each element as passed through the Reducer
 // function f. The first element is passed to the Reducer with
@@ -46,7 +66,7 @@ func Filter[T any](xs []T, f types.Predicate[T]) []T {
 func Take[T any](xs []T, n int) []T {
 	taken := make([]T, n)
 
-	for i := 0; i<n; i++ {
+	for i := 0; i < n; i++ {
 		taken[i] = xs[i]
 	}
 
@@ -56,7 +76,7 @@ func Take[T any](xs []T, n int) []T {
 // TakeWhile returns a new array containing the first elements
 // of xs which pass the supplied Predicate f. Once the Predicate
 // returns false that element and all subsequent elements are
-// discarded. 
+// discarded.
 func TakeWhile[T any](xs []T, f types.Predicate[T]) []T {
 	taken := []T{}
 
@@ -75,7 +95,7 @@ func TakeWhile[T any](xs []T, f types.Predicate[T]) []T {
 func Drop[T any](xs []T, n int) []T {
 	taken := make([]T, len(xs)-n)
 
-	for i := n; i<len(xs); i++ {
+	for i := n; i < len(xs); i++ {
 		taken[i-n] = xs[i]
 	}
 
@@ -193,7 +213,7 @@ func setFromArray[T comparable](xs []T) map[T]bool {
 	// stop converting to maps to achieve this
 	xsSet := map[T]bool{}
 	for _, x := range xs {
-	    xsSet[x] = true
+		xsSet[x] = true
 	}
 	return xsSet
 }
@@ -271,7 +291,7 @@ func Chunk[T any](xs []T, chunkSize int) [][]T {
 	result := [][]T{}
 
 	// Full chunks
-	for i := 0; i < len(xs) / chunkSize; i++ {
+	for i := 0; i < len(xs)/chunkSize; i++ {
 		newChunk := []T{}
 		result = append(result, []T{})
 		for j := 0; j < chunkSize; j++ {
@@ -282,7 +302,7 @@ func Chunk[T any](xs []T, chunkSize int) [][]T {
 
 	// Remaining chunk
 	remaining := len(xs) % chunkSize
-	if len(xs) % chunkSize > 0 {
+	if len(xs)%chunkSize > 0 {
 		newChunk := []T{}
 
 		for i := 0; i < remaining; i++ {
@@ -319,7 +339,6 @@ func Without[T any](xs []T, f types.Predicate[T]) []T {
 	}
 	return taken
 }
-
 
 // Every returns true if all elements of the supplied array xs
 // pass the Predicate f. An empty array yields true.
