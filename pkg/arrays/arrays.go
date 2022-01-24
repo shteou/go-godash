@@ -16,6 +16,11 @@ func Map[T any, U any](xs []T, f types.Mapper[T, U]) []U {
 	return mapped
 }
 
+// Map creates a new array of values by passing each element
+// of xs to the MapperWithError function f. This function short
+// circuits if f returns an error, returning the elements so far
+// NOTE: The output array may be of the same size as the input
+// array, xs, but may not necessarily be fully populated
 func MapWithError[T any, U any](xs []T, f types.MapperWithError[T, U]) ([]U, error) {
 	mapped := make([]U, len(xs))
 

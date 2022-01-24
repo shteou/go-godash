@@ -15,6 +15,30 @@ func TestMap(t *testing.T) {
 	assert.Equal(t, []int{11, 12, 13}, result)
 }
 
+func TestMap_ErrorReturns(t *testing.T) {
+	result := Map([]int{1, 2, 3}, func(x int) struct {
+		int
+		error
+	} {
+		if x > 2 {
+			return struct {
+				int
+				error
+			}{0, errors.New("Failed to map a value")}
+		} else {
+			return struct {
+				int
+				error
+			}{x + 10, nil}
+		}
+	})
+
+	assert.Equal(t, []struct {
+		int
+		error
+	}{{11, nil}, {12, nil}, {0, errors.New("Failed to map a value")}}, result)
+}
+
 func TestMapWithError(t *testing.T) {
 	result, err := MapWithError([]int{1, 2, 3}, func(x int) (int, error) {
 		return x + 10, nil
