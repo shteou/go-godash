@@ -1,6 +1,7 @@
 package arrays
 
 import (
+	"errors"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -12,6 +13,24 @@ func TestMap(t *testing.T) {
 	})
 
 	assert.Equal(t, []int{11, 12, 13}, result)
+}
+
+func TestMapWithError(t *testing.T) {
+	result, err := MapWithError([]int{1, 2, 3}, func(x int) (int, error) {
+		return x + 10, nil
+	})
+
+	assert.Equal(t, []int{11, 12, 13}, result)
+	assert.Nil(t, err)
+}
+
+func TestMapWithError_ReturnsError(t *testing.T) {
+	result, err := MapWithError([]int{1, 2, 3}, func(x int) (int, error) {
+		return x + 10, errors.New("test error")
+	})
+
+	assert.Equal(t, []int{0, 0, 0}, result)
+	assert.NotNil(t, err)
 }
 
 func TestReduce(t *testing.T) {
